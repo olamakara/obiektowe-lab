@@ -1,41 +1,38 @@
 package agh.ics.oop;
 
+import java.util.LinkedList;
 
 public class World {
 
-    public void run(Direction[] args) {
+    public void run(LinkedList<Direction> args) {
         for (Direction elem: args) {
-            switch (elem) {
-                case FORWARD -> System.out.println("Zwierzak idzie do przodu...");
-                case BACKWARD -> System.out.println("Zwierzak idzie do tyłu...");
-                case RIGHT -> System.out.println("Zwierzak skręca w prawo...");
-                case LEFT -> System.out.println("Zwierzak skręca w lewo...");
-                default -> {}
-            }
+            System.out.println(elem.label1);
         }
     }
 
-    public Direction[] convert(String[] args) {
-        int n = args.length;
-        Direction[] directionArray = new Direction[n];
-        for (int i = 0; i < n; i++) {
-            switch (args[i]) {
-                case "f" -> directionArray[i] = Direction.FORWARD;
-                case "b" -> directionArray[i] = Direction.BACKWARD;
-                case "r" -> directionArray[i] = Direction.RIGHT;
-                case "l" -> directionArray[i] = Direction.LEFT;
-                default -> directionArray[i] = Direction.IGNORE;
+    public LinkedList<Direction> convert(String[] args) {
+        LinkedList<Direction> ll = new LinkedList<>();
+        for (String arg : args) {
+            Direction dir = Direction.valueOfLabel(arg);
+            if (dir != null) {
+                ll.add(dir);
             }
         }
-        return directionArray;
+        return ll;
     }
 
     public static void main(String[] args) {
         System.out.println("start");
 
         World animal = new World();
-        Direction[] directions = animal.convert(args);
+        LinkedList<Direction> directions = animal.convert(args);
         animal.run(directions);
+
+        Vector2d position1 = new Vector2d(1,2);
+        System.out.println(position1);
+        Vector2d position2 = new Vector2d(-2,1);
+        System.out.println(position2);
+        System.out.println(position1.add(position2));
 
         System.out.println("stop");
     }
