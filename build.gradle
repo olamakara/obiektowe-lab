@@ -29,6 +29,6 @@ java {
     }
 }
 
-//run {
-//    args "f", "f", "r", "l"
-//}
+run {
+    args "f", "r", "r", "b", "f", "l"
+}

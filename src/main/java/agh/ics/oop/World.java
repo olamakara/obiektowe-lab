@@ -34,6 +34,25 @@ public class World {
         System.out.println(position2);
         System.out.println(position1.add(position2));
 
+        Animal creature = new Animal();
+        System.out.println(creature.position);
+
+        OptionsParser parser = new OptionsParser();
+        LinkedList<MoveDirection> listOfMoves = parser.parse(args);
+        for (MoveDirection move: listOfMoves) {
+            creature.move(move);
+        }
+
+        System.out.println(creature.position);
+        System.out.println(creature.orientation);
+
+        creature.move(MoveDirection.RIGHT);
+        creature.move(MoveDirection.FORWARD);
+        creature.move(MoveDirection.FORWARD);
+        creature.move(MoveDirection.FORWARD);
+        System.out.println(creature.position);
+        System.out.println(creature.orientation);
+
         System.out.println("stop");
     }
 }
