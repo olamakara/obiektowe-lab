@@ -1,7 +1,4 @@
 package agh.ics.oop;
-// nazwy dluzsze lepiej
-// posprzatac zeby wszytsko mialo ten sam styl
-// nazwa ma mowic co jest w srodku
 
 public enum MapDirection {
     NORTH,
@@ -31,20 +28,6 @@ public enum MapDirection {
         }
         return new Vector2d(x, y);
     }
-
-//    public Vector2d CoordinateY() {
-//        int y = 0;
-//        switch(this) {
-//            case NORTH -> y += 1;
-//            case SOUTH -> y -= 1;
-//            default -> {}
-//        }
-//        return new Vector2d(0, y);
-//    }
-
-//    public String toString() {
-//        return this.Direction();
-//    }
 
     public MapDirection next() {
         MapDirection[] arr = values();

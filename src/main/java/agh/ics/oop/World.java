@@ -5,20 +5,20 @@ import java.util.LinkedList;
 public class World {
 
     public void run(LinkedList<Direction> args) {
-        for (Direction elem: args) {
-            System.out.println(elem.label1);
+        for (Direction direction: args) {
+            System.out.println(direction.label1);
         }
     }
 
     public LinkedList<Direction> convert(String[] args) {
-        LinkedList<Direction> ll = new LinkedList<>();
+        LinkedList<Direction> directionLinkedList = new LinkedList<>();
         for (String arg : args) {
-            Direction dir = Direction.valueOfLabel(arg);
-            if (dir != null) {
-                ll.add(dir);
+            Direction direction = Direction.valueOfLabel(arg);
+            if (direction != null) {
+                directionLinkedList.add(direction);
             }
         }
-        return ll;
+        return directionLinkedList;
     }
 
     public static void main(String[] args) {
