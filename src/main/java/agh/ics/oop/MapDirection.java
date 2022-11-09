@@ -6,7 +6,7 @@ public enum MapDirection {
     SOUTH,
     WEST;
 
-    public String Direction() {
+    public String direction() {
         switch(this) {
             case NORTH -> {return "Północ";}
             case EAST -> {return "Wschód";}
@@ -16,7 +16,7 @@ public enum MapDirection {
         }
     }
 
-    public Vector2d Coordinates() {
+    public Vector2d coordinates() {
         int x = 0;
         int y = 0;
         switch(this) {
@@ -30,18 +30,26 @@ public enum MapDirection {
     }
 
     public MapDirection next() {
-        MapDirection[] arr = values();
-        int ind = this.ordinal();
-        return arr[(ind + 1) % 4];
+        switch (this) {
+            case NORTH -> {return EAST;}
+            case EAST -> {return SOUTH;}
+            case SOUTH -> {return WEST;}
+            case WEST -> {return NORTH;}
+            default -> {return null;}
+        }
     }
 
     public MapDirection previous() {
-        MapDirection[] arr = values();
-        int ind = this.ordinal();
-        return arr[(ind + 3) % 4];
+        switch (this) {
+            case NORTH -> {return WEST;}
+            case EAST -> {return NORTH;}
+            case SOUTH -> {return EAST;}
+            case WEST -> {return SOUTH;}
+            default -> {return null;}
+        }
     }
 
     private Vector2d toUnitVector() {
-        return this.Coordinates();
+        return this.coordinates();
     }
 }

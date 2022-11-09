@@ -6,7 +6,7 @@ public class World {
 
     public void run(LinkedList<Direction> args) {
         for (Direction direction: args) {
-            System.out.println(direction.label1);
+            System.out.println(direction.moveMessage());
         }
     }
 
@@ -24,34 +24,11 @@ public class World {
     public static void main(String[] args) {
         System.out.println("start");
 
-        World animal = new World();
-        LinkedList<Direction> directions = animal.convert(args);
-        animal.run(directions);
-
-        Vector2d position1 = new Vector2d(1,2);
-        System.out.println(position1);
-        Vector2d position2 = new Vector2d(-2,1);
-        System.out.println(position2);
-        System.out.println(position1.add(position2));
-
-        Animal creature = new Animal();
-        System.out.println(creature.position);
-
-        OptionsParser parser = new OptionsParser();
-        LinkedList<MoveDirection> listOfMoves = parser.parse(args);
-        for (MoveDirection move: listOfMoves) {
-            creature.move(move);
-        }
-
-        System.out.println(creature.position);
-        System.out.println(creature.orientation);
-
-        creature.move(MoveDirection.RIGHT);
-        creature.move(MoveDirection.FORWARD);
-        creature.move(MoveDirection.FORWARD);
-        creature.move(MoveDirection.FORWARD);
-        System.out.println(creature.position);
-        System.out.println(creature.orientation);
+        MoveDirection[] directions = new OptionsParser().parse(args);
+        IWorldMap map = new RectangularMap(10, 5);
+        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
 
         System.out.println("stop");
     }

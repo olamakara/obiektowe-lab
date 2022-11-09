@@ -1,24 +1,28 @@
 package agh.ics.oop;
 
 public enum Direction {
-    FORWARD("Zwierzak idzie do przodu...", "f"),
-    BACKWARD("Zwierzak idzie do tyłu...", "b"),
-    RIGHT("Zwierzak idzie w prawo...", "r"),
-    LEFT("Zwierzak idzie w lewo...", "l");
-
-    public final String label1;
-    public final String label2;
-    Direction(String label1, String label2) {
-        this.label1 = label1;
-        this.label2 = label2;
-    }
+    FORWARD,
+    BACKWARD,
+    RIGHT,
+    LEFT;
 
     public static Direction valueOfLabel(String label) {
-        for (Direction e : values()) {
-            if ((e.label2).equals(label)) {
-                return e;
-            }
+        switch (label) {
+            case "f": {return Direction.FORWARD;}
+            case "b": {return Direction.BACKWARD;}
+            case "r": {return Direction.RIGHT;}
+            case "l": {return Direction.LEFT;}
+            default: {return null;}
         }
-        return null;
+    }
+
+    public String moveMessage() {
+        switch (this) {
+            case FORWARD -> {return "Zwierzak idzie do przodu...";}
+            case BACKWARD -> {return "Zwierzak idzie do tyłu...";}
+            case LEFT -> {return "Zwierzak idzie w lewo...";}
+            case RIGHT -> {return "Zwierzak idzie w prawo...";}
+            default -> {return "";}
+        }
     }
 }

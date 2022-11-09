@@ -26,15 +26,15 @@ public class Vector2d {
     }
 
     public Vector2d upperRight(Vector2d other) {
-        int resx = Math.max(x, other.x);
-        int resy = Math.max(y, other.y);
-        return new Vector2d(resx, resy);
+        int resX = Math.max(x, other.x);
+        int resY = Math.max(y, other.y);
+        return new Vector2d(resX, resY);
     }
 
     public Vector2d lowerLeft(Vector2d other) {
-        int resx = Math.min(x, other.x);
-        int resy = Math.min(y, other.y);
-        return new Vector2d(resx, resy);
+        int resX = Math.min(x, other.x);
+        int resY = Math.min(y, other.y);
+        return new Vector2d(resX, resY);
     }
 
     public Vector2d add(Vector2d other) {
