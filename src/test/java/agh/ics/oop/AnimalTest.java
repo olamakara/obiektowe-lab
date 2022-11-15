@@ -45,22 +45,22 @@ public class AnimalTest {
         Animal pikachu = new Animal(map, startPosition);
 
         pikachu.move(MoveDirection.FORWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(2, 3));
+        assertEquals(pikachu.getPosition(), new Vector2d(2, 3));
 
         pikachu.move(MoveDirection.FORWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(2, 4));
+        assertEquals(pikachu.getPosition(), new Vector2d(2, 4));
 
         pikachu.move(MoveDirection.RIGHT);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(2, 4));
+        assertEquals(pikachu.getPosition(), new Vector2d(2, 4));
 
         pikachu.move(MoveDirection.FORWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(3, 4));
+        assertEquals(pikachu.getPosition(), new Vector2d(3, 4));
 
         pikachu.move(MoveDirection.LEFT);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(3, 4));
+        assertEquals(pikachu.getPosition(), new Vector2d(3, 4));
 
         pikachu.move(MoveDirection.BACKWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(3, 3));
+        assertEquals(pikachu.getPosition(), new Vector2d(3, 3));
     }
     @Test
     void testIfParseCorrect() {
@@ -84,29 +84,29 @@ public class AnimalTest {
         pikachu.move(MoveDirection.FORWARD);
         pikachu.move(MoveDirection.FORWARD);
         pikachu.move(MoveDirection.FORWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(2, 4));
+        assertEquals(pikachu.getPosition(), new Vector2d(2, 4));
 
         pikachu.move(MoveDirection.RIGHT);
         pikachu.move(MoveDirection.FORWARD);
         pikachu.move(MoveDirection.FORWARD);
         pikachu.move(MoveDirection.FORWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(4, 4));
-
-        pikachu.move(MoveDirection.RIGHT);
-        pikachu.move(MoveDirection.FORWARD);
-        pikachu.move(MoveDirection.FORWARD);
-        pikachu.move(MoveDirection.FORWARD);
-        pikachu.move(MoveDirection.FORWARD);
-        pikachu.move(MoveDirection.FORWARD);
-        pikachu.move(MoveDirection.FORWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(4, 0));
+        assertEquals(pikachu.getPosition(), new Vector2d(4, 4));
 
         pikachu.move(MoveDirection.RIGHT);
         pikachu.move(MoveDirection.FORWARD);
         pikachu.move(MoveDirection.FORWARD);
         pikachu.move(MoveDirection.FORWARD);
         pikachu.move(MoveDirection.FORWARD);
-        assertEquals(pikachu.getInitialPosition(), new Vector2d(0, 0));
+        pikachu.move(MoveDirection.FORWARD);
+        pikachu.move(MoveDirection.FORWARD);
+        assertEquals(pikachu.getPosition(), new Vector2d(4, 0));
+
+        pikachu.move(MoveDirection.RIGHT);
+        pikachu.move(MoveDirection.FORWARD);
+        pikachu.move(MoveDirection.FORWARD);
+        pikachu.move(MoveDirection.FORWARD);
+        pikachu.move(MoveDirection.FORWARD);
+        assertEquals(pikachu.getPosition(), new Vector2d(0, 0));
     }
 
     @Test
@@ -120,13 +120,13 @@ public class AnimalTest {
         engine.run();
 
         assertEquals(engine.getAnimal(0).getOrientation(), MapDirection.NORTH);
-        assertEquals(engine.getAnimal(0).getInitialPosition(), new Vector2d(2 ,0));
+        assertEquals(engine.getAnimal(0).getPosition(), new Vector2d(2 ,0));
 
         assertEquals(engine.getAnimal(1).getOrientation(), MapDirection.EAST);
-        assertEquals(engine.getAnimal(1).getInitialPosition(), new Vector2d(1 ,1));
+        assertEquals(engine.getAnimal(1).getPosition(), new Vector2d(1 ,1));
 
         assertEquals(engine.getAnimal(2).getOrientation(), MapDirection.WEST);
-        assertEquals(engine.getAnimal(2).getInitialPosition(), new Vector2d(1, 4));
+        assertEquals(engine.getAnimal(2).getPosition(), new Vector2d(1, 4));
     }
 
 }

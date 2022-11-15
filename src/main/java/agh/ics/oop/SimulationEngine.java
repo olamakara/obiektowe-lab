@@ -5,11 +5,12 @@ import java.util.List;
 
 class SimulationEngine implements IEngine {
 
+    private final IWorldMap map;
     private final MoveDirection[] movesArray;
-
     private final List<Animal> animals;
 
     public SimulationEngine(MoveDirection[] movesArray, IWorldMap map, Vector2d[] initialAnimalsPositions) {
+        this.map = map;
         this.movesArray = movesArray;
         this.animals = new ArrayList<>();
 
@@ -31,8 +32,10 @@ class SimulationEngine implements IEngine {
         int k = 0;
         for (MoveDirection moveDirection: movesArray) {
             k = k % numOfAnimals;
-            getAnimal(k).move(moveDirection);
+            Animal animal = getAnimal(k);
+            animal.move(moveDirection);
             k += 1;
+            map.updateBorders(animal.getPosition());
         }
     }
 }
