@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b1c93ef-14ca-42ff-957e-7eb8501d41e4" name="Changes" comment="lab_4 changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AbstractWorldMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IMapElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/RectangularMapAndGrassFieldTest.java" afterDir="false" />
+    <list default="true" id="9b1c93ef-14ca-42ff-957e-7eb8501d41e4" name="Changes" comment="lab_5 changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IPositionChangeObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AbstractWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AbstractWorldMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IWorldMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RectangularMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RectangularMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/RectangularMapAndGrassFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/RectangularMapAndGrassFieldTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +200,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RectangularMapTest.testisOccupiedPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Vector2dTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -215,7 +213,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.RectangularMapTest.testisOccupiedPosition&quot;" />
+            <option value="&quot;agh.ics.oop.Vector2dTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -249,9 +247,9 @@
     </configuration>
     <list>
       <item itemvalue="Application.World" />
+      <item itemvalue="Gradle.Vector2dTest" />
       <item itemvalue="Gradle.RectangularMapAndGrassFieldTest" />
       <item itemvalue="Gradle.RectangularMapTest.testWhatObjectAt" />
-      <item itemvalue="Gradle.RectangularMapTest.testisOccupiedPosition" />
       <item itemvalue="Gradle.oolab [run]" />
       <item itemvalue="Gradle.AnimalTest" />
     </list>
@@ -260,8 +258,8 @@
         <item itemvalue="Gradle.RectangularMapAndGrassFieldTest" />
         <item itemvalue="Gradle.AnimalTest" />
         <item itemvalue="Gradle.oolab [run]" />
+        <item itemvalue="Gradle.Vector2dTest" />
         <item itemvalue="Gradle.RectangularMapTest.testWhatObjectAt" />
-        <item itemvalue="Gradle.RectangularMapTest.testisOccupiedPosition" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +291,9 @@
       <workItem from="1667980351472" duration="9362000" />
       <workItem from="1668277267886" duration="920000" />
       <workItem from="1668456268445" duration="11643000" />
-      <workItem from="1668525446411" duration="18533000" />
+      <workItem from="1668525446411" duration="22867000" />
+      <workItem from="1669110137753" duration="10500000" />
+      <workItem from="1669136816928" duration="10370000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1665234897164</created>
@@ -316,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667983683096</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="lab_5 changes">
+      <created>1668550567322</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668550567322</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +389,8 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="lab_2 changes" />
     <MESSAGE value="lab_4 changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab_4 changes" />
+    <MESSAGE value="lab_5 changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab_5 changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

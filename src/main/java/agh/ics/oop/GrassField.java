@@ -2,20 +2,22 @@ package agh.ics.oop;
 
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Collections.shuffle;
 
-public class GrassField extends AbstractWorldMap {
+public class GrassField extends AbstractWorldMap implements IPositionChangeObserver {
 
     private final int numberOfGrass;
-    private final ArrayList<IMapElement> mapElements;
+    private final Map<Vector2d, IMapElement> mapElements;
     private final MapVisualiser toVisualize;
     Vector2d lowerLeft;
     Vector2d upperRight;
 
     public GrassField(int numberOfGrass) {
         this.numberOfGrass = numberOfGrass;
-        this.mapElements = new ArrayList<>();
+        this.mapElements = new HashMap<>();
         this.toVisualize = new MapVisualiser(this);
         this.lowerLeft = new Vector2d(0, 0);
         this.upperRight = new Vector2d((int)Math.sqrt(numberOfGrass * 10), (int)Math.sqrt(numberOfGrass * 10));
@@ -33,49 +35,31 @@ public class GrassField extends AbstractWorldMap {
         int grassToPut = Math.min(possibleGrassPositions.toArray().length, numberOfGrass);
         for (int i = 0; i <  grassToPut; i++) {
             Vector2d newPosition = possibleGrassPositions.get(i);
-            mapElements.add(new Grass(newPosition));
+            mapElements.put(newPosition, new Grass(newPosition));
         }
-        System.out.println(mapElements);
+//        System.out.println(mapElements);
     }
 
     @Override
     public boolean canMoveTo(Vector2d position) {
-        return !isOccupiedWithAnimal(position);
-    }
-
-    public boolean isOccupiedWithAnimal(Vector2d position) {
-        for (IMapElement element: mapElements) {
-            if (element.getPosition().equals(position) && element instanceof Animal) {
-                return true;
-            }
-        }
-        return false;
+        return !(objectAt(position) instanceof Animal);
     }
 
     public boolean isOccupied(Vector2d position) {
-        for (IMapElement element: mapElements) {
-            if (element.getPosition().equals(position)) {
-                return true;
-            }
-        }
-        return false;
+        return mapElements.get(position) != null;
     }
 
     public Object objectAt(Vector2d position) {
-        for (IMapElement element: mapElements) {
-            if (element.getPosition().equals(position)) {
-                return element;
-            }
-        }
-        return null;
+        return mapElements.get(position);
     }
 
     public boolean place(Animal animal) {
         if (canMoveTo(animal.getPosition())) {
-            mapElements.add(animal);
+            mapElements.put(animal.getPosition(), animal);
+            animal.addObserver(this);
             return true;
         }
-        return false;
+        throw new IllegalArgumentException("Cannot move to the given position: " + animal.getPosition());
     }
 
     public Vector2d upperRightBorder() {

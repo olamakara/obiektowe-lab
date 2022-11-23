@@ -1,10 +1,5 @@
 package agh.ics.oop;
-// zamiast robic enterki zrobic dodatkowe metody
-// stale -> static (final) public/private (zaleznie od tego na co ma wplyw), wielkimi literami (+snake_case)
-// wzorce projektowe -> refactoring.guru -> design patterns -> template method
-// uml? -> unified modified language, diagram class, data flow diagram, sequence diagram
 
-import java.util.Arrays;
 import java.util.LinkedList;
 
 public class World {
@@ -27,15 +22,22 @@ public class World {
     }
 
     public static void main(String[] args) {
-        System.out.println("start");
+        try {
+            System.out.println("start");
 
-        MoveDirection[] directions = new OptionsParser().parse(args);
-        IWorldMap map = new GrassField(10);
-        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
-        IEngine engine = new SimulationEngine(directions, map, positions);
-        engine.run();
-        System.out.println(map.toString());
+            MoveDirection[] directions = new OptionsParser().parse(args);
+            IWorldMap map = new GrassField(10);
+            Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
+            IEngine engine = new SimulationEngine(directions, map, positions);
+            engine.run();
+            System.out.println(map);
 
-        System.out.println("stop");
+            System.out.println("stop");
+        }
+
+        catch (IllegalArgumentException exception) {
+            System.out.println(exception);
+        }
+
     }
 }

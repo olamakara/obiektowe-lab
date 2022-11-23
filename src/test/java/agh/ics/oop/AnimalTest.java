@@ -64,8 +64,7 @@ public class AnimalTest {
     }
     @Test
     void testIfParseCorrect() {
-        String[] movesString = {"f", "fl", "b", "forward", "backward", "r", "blackword", "left", "rb",
-                "ll", "right", "lefty", "left"};
+        String[] movesString = {"f", "b", "forward", "backward", "r", "left", "right", "left"};
         OptionsParser parser = new OptionsParser();
         MoveDirection[] movesDirections = parser.parse(movesString);
         MoveDirection[] expectedDirections = {MoveDirection.FORWARD, MoveDirection.BACKWARD, MoveDirection.FORWARD,

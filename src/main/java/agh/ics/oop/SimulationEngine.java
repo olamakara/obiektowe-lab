@@ -36,6 +36,7 @@ class SimulationEngine implements IEngine {
             animal.move(moveDirection);
             k += 1;
             map.updateBorders(animal.getPosition());
+//            System.out.println(map);
         }
     }
 }

@@ -49,7 +49,6 @@ public class RectangularMapAndGrassFieldTest {
         Vector2d giraffeVector = new Vector2d(2, 1);
         Vector2d crocodileVector = new Vector2d(3, 2);
 
-        // tutaj nie sprawdzam dla mapG, bo trawa jest w niewiadomych miejscach
         assertFalse(mapR.isOccupied(lionVector));
         assertFalse(mapR.isOccupied(giraffeVector));
         assertFalse(mapR.isOccupied(crocodileVector));
