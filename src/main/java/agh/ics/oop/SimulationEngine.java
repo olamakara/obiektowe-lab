@@ -3,7 +3,7 @@ package agh.ics.oop;
 import java.util.ArrayList;
 import java.util.List;
 
-class SimulationEngine implements IEngine {
+public class SimulationEngine implements IEngine {
 
     private final IWorldMap map;
     private final MoveDirection[] movesArray;
@@ -35,8 +35,6 @@ class SimulationEngine implements IEngine {
             Animal animal = getAnimal(k);
             animal.move(moveDirection);
             k += 1;
-            map.updateBorders(animal.getPosition());
-//            System.out.println(map);
         }
     }
 }

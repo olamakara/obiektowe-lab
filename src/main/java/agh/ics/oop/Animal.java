@@ -50,14 +50,12 @@ public class Animal implements IMapElement {
             case FORWARD -> {
                 Vector2d move = position.add(orientation.coordinates());
                 if (map.canMoveTo(move)) {
-//                    position = move;
                     positionChanged(move);
                 }
             }
             case BACKWARD -> {
                 Vector2d move = position.add(orientation.coordinates().opposite());
                 if (map.canMoveTo(move)) {
-//                    position = move;
                     positionChanged(move);
                 }
             }

@@ -65,10 +65,10 @@ public class Vector2dTest {
         Vector2d upper_right1 = vector.upperRight(other1);
         Vector2d upper_right2 = vector.upperRight(other2);
 
-        assertEquals(upper_right1.x, 5);
-        assertEquals(upper_right1.y, 8);
-        assertEquals(upper_right2.x, -3);
-        assertEquals(upper_right2.y, 60);
+        assertEquals(upper_right1.getX(), 5);
+        assertEquals(upper_right1.getY(), 8);
+        assertEquals(upper_right2.getX(), -3);
+        assertEquals(upper_right2.getY(), 60);
     }
 
     @Test
@@ -80,10 +80,10 @@ public class Vector2dTest {
         Vector2d lower_left1 = vector.lowerLeft(other1);
         Vector2d lower_left2 = vector.lowerLeft(other2);
 
-        assertEquals(lower_left1.x, -3);
-        assertEquals(lower_left1.y, -7);
-        assertEquals(lower_left2.x, -3);
-        assertEquals(lower_left2.y, -60);
+        assertEquals(lower_left1.getX(), -3);
+        assertEquals(lower_left1.getY(), -7);
+        assertEquals(lower_left2.getX(), -3);
+        assertEquals(lower_left2.getY(), -60);
     }
 
     @Test
@@ -95,10 +95,10 @@ public class Vector2dTest {
         Vector2d vector_plus_other1 = vector.add(other1);
         Vector2d vector_plus_other2 = vector.add(other2);
 
-        assertEquals(vector_plus_other1.x, 2);
-        assertEquals(vector_plus_other1.y, 1);
-        assertEquals(vector_plus_other2.x, -54);
-        assertEquals(vector_plus_other2.y, -53);
+        assertEquals(vector_plus_other1.getX(), 2);
+        assertEquals(vector_plus_other1.getY(), 1);
+        assertEquals(vector_plus_other2.getX(), -54);
+        assertEquals(vector_plus_other2.getY(), -53);
     }
 
     @Test
@@ -110,10 +110,10 @@ public class Vector2dTest {
         Vector2d vector_minus_other1 = vector.subtract(other1);
         Vector2d vector_minus_other2 = vector.subtract(other2);
 
-        assertEquals(vector_minus_other1.x, -8);
-        assertEquals(vector_minus_other1.y, 15);
-        assertEquals(vector_minus_other2.x, 48);
-        assertEquals(vector_minus_other2.y, 69);
+        assertEquals(vector_minus_other1.getX(), -8);
+        assertEquals(vector_minus_other1.getY(), 15);
+        assertEquals(vector_minus_other2.getX(), 48);
+        assertEquals(vector_minus_other2.getY(), 69);
     }
 
     @Test
@@ -124,10 +124,10 @@ public class Vector2dTest {
         Vector2d opposite_vector1 = vector1.opposite();
         Vector2d opposite_vector2 = vector2.opposite();
 
-        assertEquals(opposite_vector1.x, -3);
-        assertEquals(opposite_vector1.y, 6);
-        assertEquals(opposite_vector2.x, 51);
-        assertEquals(opposite_vector2.y, 61);
+        assertEquals(opposite_vector1.getX(), -3);
+        assertEquals(opposite_vector1.getY(), 6);
+        assertEquals(opposite_vector2.getX(), 51);
+        assertEquals(opposite_vector2.getY(), 61);
     }
 
 }
