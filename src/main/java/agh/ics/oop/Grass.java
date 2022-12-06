@@ -14,6 +14,17 @@ public class Grass implements IMapElement {
 
     @Override
     public String toString() {
-        return "*";
+//        return "*";
+        return "Trawa";
+    }
+
+    @Override
+    public String getImagePath() {
+        return "src/main/resources/grass.png";
+    }
+
+    @Override
+    public MapDirection getOrientation() {
+        return null;
     }
 }

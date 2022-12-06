@@ -30,13 +30,7 @@ public class Animal implements IMapElement {
 
     @Override
     public String toString() {
-        switch (orientation) {
-            case NORTH -> {return "N";}
-            case SOUTH -> {return "S";}
-            case WEST -> {return "W";}
-            case EAST -> {return "E";}
-            default -> {return "";}
-        }
+        return "Z " + getPosition().toString();
     }
 
     public boolean isAt(Vector2d position) {
@@ -79,5 +73,24 @@ public class Animal implements IMapElement {
             observer.positionChanged(position, newPosition);
         }
         position = newPosition;
+    }
+
+    @Override
+    public String getImagePath() {
+        switch (getOrientation()) {
+            case NORTH -> {
+                return "src/main/resources/up.png";
+            }
+            case EAST -> {
+                return "src/main/resources/right.png";
+            }
+            case SOUTH -> {
+                return "src/main/resources/down.png";
+            }
+            case WEST -> {
+                return "src/main/resources/left.png";
+            }
+        }
+        return "Animal doesn't have orientation";
     }
 }
